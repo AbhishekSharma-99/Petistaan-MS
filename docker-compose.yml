@@ -6,11 +6,11 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${MY_SQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MY_SQL_DATABASE}
       MYSQL_USER: ${MY_SQL_USERNAME}
       MYSQL_PASSWORD: ${MY_SQL_PASSWORD}
     volumes:
       - ./mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   mailpit:
     image: axllent/mailpit:latest
